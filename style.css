@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+#message {
+    border: .1vw solid red;
+    height: 10vw;
+    margin: auto;
+    width: 50vw;
+}
+
+#buttonDiv {
+    margin: auto;
+    border: .1vw solid blue;
+    height: 10vw;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 40%;
+    height: 25%;
+    margin: 1%;
+    display: block;
+}
+
+#faceContainer {
+    border: .5vw solid green;
+    margin: auto;
+    width: 40vw;
+    height: 40vw;
+    background-color: rgb(165, 99, 42);
+}
+
+#clockFace {
+    width: 100%;
+    height: 100%;
+    background-color: ivory;
+    border: thick solid gold;
+    border-radius: 50%;
+}
+
+.clockNumber {
+    position: absolute;
+    font-family: 'Zen Antique', serif;
+}
+
+#twelve{
+    
+}
+
+#three{
+
+}
+
+#six {
+
+}
+
+#nine {
+
+}
+
+@media (max-width: 600px) {
+   
+    #faceContainer{
+        width: 100vw;
+    }
+
+    #buttonDiv {
+        width: 100vw;
+    }
+
+    #message {
+        width: 100vw;
+    }
+
+}
