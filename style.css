@@ -28,7 +28,7 @@ button {
 }
 
 #faceContainer {
-    border: .5vw solid green;
+    border: .1vw solid black;
     margin: auto;
     width: 40vw;
     height: 40vw;
@@ -36,32 +36,39 @@ button {
 }
 
 #clockFace {
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: ivory;
-    border: thick solid gold;
+    border: .6vw solid gold;
     border-radius: 50%;
 }
 
 .clockNumber {
     position: absolute;
     font-family: 'Zen Antique', serif;
+    font-size: 4em;
+    color: black;
 }
 
 #twelve{
-    
+    top: 1%;
+    left: 50%;
 }
 
 #three{
-
+    top: 50%;
+    right: 1%;
 }
 
 #six {
-
+    left: 50%;
+    bottom: 1%;
 }
 
 #nine {
-
+    left: 1%;
+    top: 50%;
 }
 
 @media (max-width: 600px) {

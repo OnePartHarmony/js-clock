@@ -22,6 +22,15 @@ const makeClock = () => {
     six.classList.add("clockNumber")
     nine.setAttribute("id", "nine")
     nine.classList.add("clockNumber")
+    twelve.innerText = "12"
+    three.innerText = "3"
+    six.innerText = "6"
+    nine.innerText = "9"
+    clockFace.appendChild(twelve)
+    clockFace.appendChild(three)
+    clockFace.appendChild(six)
+    clockFace.appendChild(nine)
+
 //create hour hand
 
 //create minute hand
