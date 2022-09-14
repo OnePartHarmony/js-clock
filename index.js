@@ -22,6 +22,16 @@ const makeClock = () => {
     clockFace.appendChild(secondHand)
 }
 
+//make second hand rotate per second
+
+//make minute hand rotate per minute
+
+//make hour hand rotate per hour
+
+
+
+
+
 
 stopButton.addEventListener("click", makeClock, { once: true })
 
