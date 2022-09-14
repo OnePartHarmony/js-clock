@@ -39,37 +39,46 @@ button {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: ivory;
-    border: .6vw solid gold;
+    background: url(clockFace.jpeg);
+    background-position: center;
+    background-size: 100%;
+    border: 1vw solid rgb(112, 81, 54);
     border-radius: 50%;
 }
 
-.clockNumber {
+#hourHand {
     position: absolute;
-    font-family: 'Zen Antique', serif;
-    font-size: 4em;
-    color: black;
+    height: 100%;
+    width: 14.7%;
+    left: 47%;
+    background: url(hourHand.png);
+    background-position: center;
+    background-size: 100%;
 }
 
-#twelve{
-    top: 1%;
-    left: 50%;
+
+#minuteHand {
+    position: absolute;
+    height: 100%;
+    width: 10.4%;
+    left: 46%;
+    background: url(minuteHand.png);
+    background-position: center;
+    background-size: 100%;
 }
 
-#three{
-    top: 50%;
-    right: 1%;
+
+#secondHand {
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    left: 46%;
+    background: url(secondHand.png);
+    background-position: center;
+    background-size: 100%;
 }
 
-#six {
-    left: 50%;
-    bottom: 1%;
-}
 
-#nine {
-    left: 1%;
-    top: 50%;
-}
 
 @media (max-width: 600px) {
    
