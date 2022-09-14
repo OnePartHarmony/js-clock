@@ -6,6 +6,8 @@
     height: 6vw;
     margin: auto;
     width: 50vw;
+    text-align: center;
+    font-size: 2em;
 }
 
 #buttonDiv {
@@ -52,6 +54,7 @@ button {
     background: url(hourHand.png);
     background-position: center;
     background-size: 100%;
+    transform: rotate(-1.8deg);
 }
 
 
@@ -63,6 +66,7 @@ button {
     background: url(minuteHand.png);
     background-position: center;
     background-size: 100%;
+    transform: rotate(-1.8deg);
 }
 
 
@@ -74,6 +78,7 @@ button {
     background: url(secondHand.png);
     background-position: center;
     background-size: 100%;
+    transform: rotate(-1.8deg);
 }
 
 
