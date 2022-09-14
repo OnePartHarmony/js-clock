@@ -1,6 +1,7 @@
 const startButton = document.getElementById("startButton")
 const stopButton = document.getElementById("stopButton")
 const faceContainer = document.getElementById("faceContainer")
+const message = document.getElementById("message")
 
 //this function creates a clock face
 const makeClock = () => {
@@ -23,10 +24,12 @@ const makeClock = () => {
 }
 
 
-
-let secondCount = 1
+//variables to set starting time1 second
+let secondCount = 0
 let minuteCount = 0
 let hourCount = 0
+
+
 //functions to set degree based on second, minute, hour
 const secSpot = (secNum) => {
     return ((secNum / 60) * 360)
@@ -40,56 +43,56 @@ const hrSpot = (secNum, minNum, hrNum) => {
     return (minNum * 0.5) + ((hrNum / 12) * 360)
 }
 
-
+//determine start position based on real time
 //function sets position of each hand based on number of seconds, minutes, and hours  (-1.8deg just to match clock image better)
-const rotPerSecond = () => {
-    if (secondCount === 60){
-        minuteCount++
-        secondCount = 0;
-    };
-    if (minuteCount === 60){
-        hourCount++
-        minuteCount = 0;
-    };
-    if (hourCount === 12){
-        hourCount === 0;
-    };
+const setClock = () => {
+    let date = new Date()
+    let nowTime = [date.getHours(), date.getMinutes(), date.getSeconds()]
+    secondCount = nowTime[2]
+    minuteCount = nowTime[1]
+    hourCount = nowTime[0]
+
     const secondDeg = secSpot(secondCount) - 1.8
     const minuteDeg = minSpot(secondCount, minuteCount) - 1.8
     const hourDeg = hrSpot(secondCount, minuteCount, hourCount) -1.8
 
-    document.getElementById("secondHand").style.transform = "rotate(" + secondDeg + "deg)";
-    document.getElementById("minuteHand").style.transform = "rotate(" + minuteDeg + "deg)";
-    document.getElementById("hourHand").style.transform = "rotate(" + hourDeg + "deg)";
-    secondCount++;
-
+    document.getElementById("secondHand").style.transform = "rotate(" + secondDeg + "deg)"
+    document.getElementById("minuteHand").style.transform = "rotate(" + minuteDeg + "deg)"
+    document.getElementById("hourHand").style.transform = "rotate(" + hourDeg + "deg)"   
 }
 
-//A function that makes the clock and starts it rotating per second
+
+//a function for the stop button to stop the clock and make the start button work again.
+const stopClock = () => {
+    clearInterval(clockInterval)
+    startButton.addEventListener("click", restartClock, { once: true })
+    startButton.innerText = "Restart Clock"
+    message.innerText = "A stopped clock is right twice a day."
+}
+
+//A function that makes the clock and starts it rotating per second, starting at real time, and sets up the stop button
 const startClock = () => {
     makeClock()
-    window.clockInterval = setInterval(rotPerSecond, 1000)
+    setClock()
+    window.clockInterval = setInterval(setClock, 1000)
+    stopButton.addEventListener("click", stopClock, { once: true })
+    message.innerText = "The time is now:"
+}
+
+const restartClock = () => {
+    setClock()
+    window.clockInterval = setInterval(setClock, 1000)
+    stopButton.addEventListener("click", stopClock, { once: true })
+    message.innerText = "The time is now:"
 }
 
 
 startButton.addEventListener("click", startClock, { once: true })
 
-const stopClock = () => {
-    clearInterval(clockInterval)
-}
-
-stopButton.addEventListener("click", stopClock, { once: true })
 
 
 
-// //determine start position based on real time
-// const setClock = () => {
-//     let date = new Date()
-//     let nowTime = [date.getHours(), date.getMinutes(), date.getSeconds()]
-// //hours should set hand to hr/12 * 360
-// //minutes should set hand to minutes/60 * 360
-//     let secondDeg = 
 
 
 
-// }
+
