@@ -25,8 +25,8 @@ const makeClock = () => {
 
 
 let secondCount = 1
-let minuteCount = 58
-let hourCount = 2
+let minuteCount = 0
+let hourCount = 0
 //functions to set degree based on second, minute, hour
 const secSpot = (secNum) => {
     return ((secNum / 60) * 360)
