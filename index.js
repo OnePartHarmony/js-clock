@@ -37,7 +37,8 @@ const minSpot = (secNum, minNum) => {
 }
 
 const hrSpot = (secNum, minNum, hrNum) => {
-    return (((secSpot(secNum) / 60) /60) + (secSpot(minNum) / 60) + (hrNum / 12) * 360)
+    return (secSpot(minNum) / 60) + ((hrNum / 12) * 360)
+    // return (((secSpot(secNum) / 60) /60) +(secSpot(minNum) / 60) + (hrNum / 12) * 360)
 }
 
 
@@ -55,8 +56,8 @@ const rotPerSecond = () => {
         hourCount === 0;
     };
     const secondDeg = secSpot(secondCount) - 1.8
-    const minuteDeg = minSpot(secondCount,minuteCount) - 1.8
-    const hourDeg = hrSpot(secondCount,minuteCount,hourCount) -1.8
+    const minuteDeg = minSpot(secondCount, minuteCount) - 1.8
+    const hourDeg = hrSpot(secondCount, minuteCount, hourCount) -1.8
 
     document.getElementById("secondHand").style.transform = "rotate(" + secondDeg + "deg)";
     document.getElementById("minuteHand").style.transform = "rotate(" + minuteDeg + "deg)";
