@@ -3,9 +3,9 @@
 }
 
 #message {
-    height: 6vw;
+    height: max-content;
     margin: auto;
-    width: 50vw;
+    width: 70vw;
     text-align: center;
     font-size: 2em;
 }
@@ -83,18 +83,34 @@ button {
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
    
     #faceContainer{
         width: 100vw;
+        height: 100vw;
     }
 
     #buttonDiv {
         width: 100vw;
+        height: 20vw;
     }
 
     #message {
         width: 100vw;
+        height: 20vw;
     }
 
+}
+
+
+@media (max-width: 450px) {
+    #message {
+        font-size: 1.5em;
+        height: 40vw;
+    }
+
+    #buttonDiv {
+        width: 100vw;
+        height: 40vw;
+    }
 }
