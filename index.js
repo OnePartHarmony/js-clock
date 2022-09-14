@@ -27,21 +27,21 @@ const makeClock = () => {
 let secondCount = 1
 let minuteCount = 0
 let hourCount = 0
-//functions to set degree based on second, minute, hour (-1.8deg just to match clock image better)
+//functions to set degree based on second, minute, hour
 const secSpot = (secNum) => {
-    return ((secNum / 60) * 360) - 1.8
+    return ((secNum / 60) * 360)
 }
 
 const minSpot = (secNum, minNum) => {
-    return ((secSpot(secNum) / 60) + secSpot(minNum)) - 1.8
+    return ((secSpot(secNum) / 60) + secSpot(minNum))
 }
 
-const hrSpot = (count) => {
-    
+const hrSpot = (secNum, minNum, hrNum) => {
+    return (((secSpot(secNum) / 60) /60) + (secSpot(minNum) / 60) + (hrNum / 12) * 360)
 }
 
 
-//function sets position of each hand based on number of seconds, minutes, and hours 
+//function sets position of each hand based on number of seconds, minutes, and hours  (-1.8deg just to match clock image better)
 const rotPerSecond = () => {
     if (secondCount === 60){
         minuteCount++
@@ -54,9 +54,9 @@ const rotPerSecond = () => {
     if (hourCount === 12){
         hourCount === 0;
     };
-    const secondDeg = secSpot(secondCount)
-    const minuteDeg = minSpot(secondCount,minuteCount)
-    const hourDeg = (((((secondCount / 60) /60) / 60) *360) + (((minuteCount / 60) / 60) * 360) + ((hourCount / 12) * 360)) -1.8;
+    const secondDeg = secSpot(secondCount) - 1.8
+    const minuteDeg = minSpot(secondCount,minuteCount) - 1.8
+    const hourDeg = hrSpot(secondCount,minuteCount,hourCount) -1.8
 
     document.getElementById("secondHand").style.transform = "rotate(" + secondDeg + "deg)";
     document.getElementById("minuteHand").style.transform = "rotate(" + minuteDeg + "deg)";
